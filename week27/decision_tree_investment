@@ -1,0 +1,27 @@
+// Decision Tree: Investment in Startup
+digraph {
+	size="10,10"
+	Start [label="Start
+(Invest $20,000)"]
+	"R&D_Success" [label="R&D Success (p=0.4)"]
+	"R&D_Fail" [label="R&D Fail (p=0.6)
+Return: $5,000
+Net: -$15,000"]
+	Market_Success [label="Market Success (p=0.5)"]
+	Market_Fail [label="Market Fail (p=0.5)
+Return: $5,000
+Net: -$10,000"]
+	Production_Success [label="Production Success (p=0.6)
+Return: $100,000
+Cost: $30,000
+Net: +$30,000"]
+	Production_Fail [label="Production Fail (p=0.4)
+Return: $0
+Net: -$30,000"]
+	Start -> "R&D_Success" [label="Success (40%)"]
+	Start -> "R&D_Fail" [label="Fail (60%)"]
+	"R&D_Success" -> Market_Success [label="Success (50%)"]
+	"R&D_Success" -> Market_Fail [label="Fail (50%)"]
+	Market_Success -> Production_Success [label="Success (60%)"]
+	Market_Success -> Production_Fail [label="Fail (40%)"]
+}
